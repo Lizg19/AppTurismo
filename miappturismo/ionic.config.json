@@ -1,0 +1,7 @@
+{
+  "name": "miappturismo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
