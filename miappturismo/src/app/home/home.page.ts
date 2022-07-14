@@ -24,4 +24,9 @@ export class HomePage {
   gotoProfile() {
     this.router.navigate(['/profile']);
   }
+
+  gotoViewPlace() {
+    this.router.navigate(['/viewplacespropietario']);
+    
+  }
 }

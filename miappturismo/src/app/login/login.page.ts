@@ -23,7 +23,7 @@ export class LoginPage implements OnInit {
     if(this.email && this.password){
       this.auth.signIn(this.email, this.password)
     }else{
-      this.toast("Porfavor ingrese su correo y contraseña","warning")
+      this.toast("Porfavor ingrese su correo y contraseña.","warning")
     }
     
   }

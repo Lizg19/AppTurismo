@@ -47,9 +47,14 @@ const routes: Routes = [
 
   },
   {
+    path: 'viewplacespropietario',
+    loadChildren: () => import('./viewplacespropietario/viewplacespropietario.module').then( m => m.ViewplacespropietarioPageModule)
+  },
+  {
     path: '**',
     loadChildren: () => import('./page-not-found/page-not-found.module').then( m => m.PageNotFoundPageModule)
   },
+  
 ];
 
 @NgModule({

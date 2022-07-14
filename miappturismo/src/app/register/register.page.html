@@ -20,7 +20,7 @@
 
         <ion-item>
           <ion-label  position ="stacked">Perfil</ion-label>
-          <ion-select placeholder="Select rol" [(ngModel)]="rol" name="rol">
+          <ion-select placeholder="Seleccione el rol" [(ngModel)]="rol" name="rol">
             <ion-select-option value="Propietario">Propietario</ion-select-option>
             <ion-select-option value="Turista">Turista</ion-select-option>
           </ion-select>
@@ -36,5 +36,11 @@
       </ion-list>
     </form>
   </ion-card>
+
+  
+  <div style="text-align:center">
+    <p>¿Ya tienes una cuenta? da click <a [routerLink]="['/login']"> Aqui!</a></p>
+</div>
+
 
 </ion-content>
