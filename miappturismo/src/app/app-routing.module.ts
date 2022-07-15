@@ -51,9 +51,15 @@ const routes: Routes = [
     loadChildren: () => import('./viewplacespropietario/viewplacespropietario.module').then( m => m.ViewplacespropietarioPageModule)
   },
   {
+    path: 'map',
+    loadChildren: () => import('./map/map.module').then( m => m.MapPageModule),
+    canActivate: [AuthGuard]
+  },
+  {
     path: '**',
     loadChildren: () => import('./page-not-found/page-not-found.module').then( m => m.PageNotFoundPageModule)
   },
+
   
 ];
 

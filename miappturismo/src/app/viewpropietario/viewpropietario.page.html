@@ -5,54 +5,62 @@
 </ion-header>
 
 <ion-content>
+  <ion-item>
+    <ion-label position="stacked">Nombre del lugar</ion-label>
+    <ion-input type="text" [(ngModel)]="nameplace" name="nameplace">
+    </ion-input>
+  </ion-item>
 
+  <ion-item>
+    <ion-label position="stacked">Descripción</ion-label>
+    <ion-input
+      type="text"
+      placeholder="Descripción del lugar"
+      [(ngModel)]="descriplace"
+      name="descriplace"
+    >
+    </ion-input>
+  </ion-item>
 
+  <ion-item>
+    <ion-label position="stacked">Característica</ion-label>
+    <ion-input
+      placeholder="Característica del lugar"
+      [(ngModel)]="characplace"
+      type="text"
+      name="characplace"
+    >
+    </ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked"> Ubicación </ion-label>
 
-
-<ion-item>
-  <ion-label position="stacked">Nombre del lugar</ion-label>
-  <ion-input type="text" [(ngModel)]="nameplace" name="nameplace"> </ion-input>
-</ion-item>
-
-<ion-item>
-  <ion-label position="stacked">Descripción</ion-label>
-  <ion-input type="text" 
-  placeholder="Descripción del lugar"
-  [(ngModel)]="descriplace"
-     name="descriplace">
-  </ion-input>
-</ion-item>
-
-<ion-item>
-  <ion-label position="stacked">Característica</ion-label>
-  <ion-input
-    placeholder="Característica del lugar"
-    [(ngModel)]="characplace"
-    type="text"  name="characplace">
-  </ion-input>
-</ion-item>
-
-<ion-item>
-  <ion-label >Cargar imagen</ion-label>
-  <ion-button>
-    <label for="file-upload">
-      <ion-icon slot="icon-only" name="images"></ion-icon>
-    </label>
-     <input  (change)="newImageUpload($event)" id="file-upload" style="display: none" type="file" >
-      
+  </ion-item>
+  <div id="map"></div>
+  <ion-item>
+    <ion-label>Cargar imagen</ion-label>
+    <ion-button>
+      <label for="file-upload">
+        <ion-icon slot="icon-only" name="images"></ion-icon>
+      </label>
+      <input
+        (change)="newImageUpload($event)"
+        id="file-upload"
+        style="display: none"
+        type="file"
+      />
     </ion-button>
-</ion-item>
+  </ion-item>
 
-<ion-item>
-  <img class="image"  [src]="newImage">
-</ion-item>
+  <ion-item>
+    <img class="image" [src]="newImage" />
+  </ion-item>
 
-
-
-<ion-button expand="block" shape="round"  type="submit" (click)="guardarProducto()">Guardar</ion-button>
-
-
-
-
-
+  <ion-button
+    expand="block"
+    shape="round"
+    type="submit"
+    (click)="guardarProducto()"
+    >Guardar</ion-button
+  >
 </ion-content>

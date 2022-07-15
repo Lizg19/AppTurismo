@@ -6,7 +6,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-
+import {HttpClientModule } from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {AngularFireModule} from '@angular/fire/compat'
 import {AngularFirestoreModule} from '@angular/fire/compat/firestore'
@@ -19,10 +19,13 @@ import {AuthService} from './services/auth.service'
 
 import {AuthGuard} from './guards/auth.guard'
 import { StatusBar } from '@capacitor/status-bar';
+import { Geolocation} from '@ionic-native/geolocation/ngx';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
+    
+    HttpClientModule,
     BrowserModule, 
     IonicModule.forRoot(), 
     AppRoutingModule,
@@ -36,6 +39,7 @@ import { StatusBar } from '@capacitor/status-bar';
   providers: [
     AuthService,
     AuthGuard,
+    Geolocation,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
