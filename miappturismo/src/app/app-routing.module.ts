@@ -48,7 +48,8 @@ const routes: Routes = [
   },
   {
     path: 'viewplacespropietario',
-    loadChildren: () => import('./viewplacespropietario/viewplacespropietario.module').then( m => m.ViewplacespropietarioPageModule)
+    loadChildren: () => import('./viewplacespropietario/viewplacespropietario.module').then( m => m.ViewplacespropietarioPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'map',
