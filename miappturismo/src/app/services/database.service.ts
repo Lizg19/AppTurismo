@@ -19,9 +19,14 @@ export class DatabaseService {
     return collection.doc(id).set(data);
    }
    // LEE UN DOCUMENTO DE LA BASE
-   getDoc(path:string,id:string){
+
+   /*getDoc(path:string,id:string){
     const collection=this.database.collection(path);
     return collection.doc(id).valueChanges();
+   }*/
+
+   getDoc<tipo>(path: string, id: string){
+    return this.database.collection(path).doc<tipo>(id).valueChanges();
    }
    // ELMINA UN DOCUMENTO DE LA BASE
    deleteDoc(path:string, id:string){

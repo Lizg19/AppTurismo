@@ -97,4 +97,8 @@ export class AuthService {
     });
     toast.present();
   }
+
+  stateUser (){
+    return this.afauth.authState 
+  }
 }

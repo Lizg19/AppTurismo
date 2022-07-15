@@ -2,5 +2,6 @@ export interface User {
     userId: string;
     userName: string;
     userEmail: string;
-    createdAt: string;
+    password:string,
+    perfil: 'turista' | 'propietario'  | 'admin'
 }
