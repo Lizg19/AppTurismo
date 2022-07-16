@@ -1,8 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Página principal
-    </ion-title>
+    <ion-title> Página principal </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -12,20 +10,72 @@
       <ion-title size="large">Página Principal</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-button
+    *ngIf="login == true && rol =='propietario'"
+    expand="block"
+    shape="round"
+    (click)="gotoProfile()"
+  >
+    Perfil
+  </ion-button>
+  <ion-button
+    *ngIf="login == true && rol =='propietario'"
+    expand="block"
+    shape="round"
+    (click)="gotoPlace()"
+  >
+    Agregar un lugar
+  </ion-button>
+  <ion-button
+    *ngIf="login == true && rol =='propietario'"
+    expand="block"
+    shape="round"
+    (click)="gotoViewPlace()"
+  >
+    Ver mis lugares</ion-button
+  >
 
-  <ion-button  *ngIf="login == true && rol =='propietario'"  expand="block" shape="round" (click)="gotoProfile()"> Perfil </ion-button>
-  <ion-button *ngIf="login == true && rol =='propietario'"  expand="block" shape="round" (click)="gotoPlace()" > Agregar un lugar </ion-button>
-  <ion-button *ngIf="login == true && rol =='propietario'"  expand="block" shape="round" (click)="gotoViewPlace()" > Ver mis lugares</ion-button>
-  
-  <ion-button *ngIf="login == true && rol =='turista'"  expand="block" shape="round" (click)="gotoViewTurista()" > Ver sitios turísticos</ion-button>
+  <ion-button
+    *ngIf="login == true && rol =='Turista'"
+    expand="block"
+    shape="round"
+    (click)="gotoViewTurista()"
+  >
+    Ver sitios turísticos</ion-button
+  >
 
+  <ion-button
+    *ngIf="login == true && rol =='admin'"
+    expand="block"
+    shape="round"
+    (click)="gotoViewAdmin()"
+  >
+    Administrador</ion-button
+  >
 
-  
-  <ion-button  *ngIf="login == true && rol =='admin'" expand="block" shape="round" (click)="gotoViewAdmin()" > Administrador</ion-button>
-  
-  <ion-button  *ngIf="login == false" expand="block" shape="round" (click)="gotoLogin()" > Iniciar Sesión</ion-button>
-  <ion-button  *ngIf="login == false" expand="block" shape="round" (click)="gotoRegister()" > Registrarse</ion-button>
-  
-  <ion-button *ngIf="login == true"  expand="block" shape="round" (click)="logout()" > Logout </ion-button>
-  
+  <ion-button
+    *ngIf="login == false"
+    expand="block"
+    shape="round"
+    (click)="gotoLogin()"
+  >
+    Iniciar Sesión</ion-button
+  >
+  <ion-button
+    *ngIf="login == false"
+    expand="block"
+    shape="round"
+    (click)="gotoRegister()"
+  >
+    Registrarse</ion-button
+  >
+
+  <ion-button
+    *ngIf="login == true"
+    expand="block"
+    shape="round"
+    (click)="logout()"
+  >
+    Logout
+  </ion-button>
 </ion-content>

@@ -1,9 +1,26 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>viewturista</ion-title>
+    <ion-title>Lugares</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content *ngFor="let place of listaLugares">
+  <ul>
+    <ion-header>
+      <ion-navbar>
+        <ion-title>{{place.place}}</ion-title>
+      </ion-navbar>
+    
+      <ion-toolbar>
+        <ion-title>{{place.caracteristica}}</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-img style="width: 40rem; height:10rem;" [src]="place.image"></ion-img>
 
+    <!-- MAPA -->
+    <ion-item>
+      <ion-label position="stacked"> Ubicación </ion-label>
+      <ion-button [routerLink]="['/map',place.latitude, place.longitude]"> IR AL MAPA </ion-button>
+    </ion-item>
+  </ul>
 </ion-content>

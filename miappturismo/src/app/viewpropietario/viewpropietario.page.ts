@@ -60,9 +60,11 @@ export class ViewpropietarioPage implements OnInit {
     this.afauth.onAuthStateChanged((user) => {
       if (user) {
         const uid = user.uid;
-        const path = `user/${uid}/Lugares/`;
+        const pathUsuarios = `user/${uid}/Lugares/`;
+        const pathLugares =`Lugares`;
         const id = this.nameplace;
-        this.database.createDoc(data, path, id);
+        this.database.createDoc(data, pathUsuarios, id);
+        this.database.createDoc(data, pathLugares, id);
       }
     });
     this.toast('Lugar agregado correctamente', 'success');
