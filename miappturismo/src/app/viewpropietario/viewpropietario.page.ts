@@ -16,6 +16,7 @@ export class ViewpropietarioPage implements OnInit {
   nameplace: string;
   descriplace: string;
   characplace: string;
+
   latitude: number;
   longitude: number;
   map = null;
@@ -39,6 +40,7 @@ export class ViewpropietarioPage implements OnInit {
   async ngOnInit() {
     await this.geolocationNative();
     await this.loadMap();
+   
   }
 
   async guardarProducto() {
@@ -130,4 +132,7 @@ export class ViewpropietarioPage implements OnInit {
       map: this.map,
     });
   }
+
 }
+ 
+ 

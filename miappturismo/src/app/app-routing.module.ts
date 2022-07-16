@@ -52,7 +52,7 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'map',
+    path: 'map/:latitude/:longitude',
     loadChildren: () => import('./map/map.module').then( m => m.MapPageModule),
     canActivate: [AuthGuard]
   },
