@@ -69,4 +69,31 @@ export class DatabaseService {
       console.error(error);
     }
   }
+
+  async getAll(collection) {
+    try {
+      return await this.database.collection(collection).snapshotChanges();
+    } catch (error) {
+      console.log("error en: getAll ", error)
+    }
+  }
+
+  async delete(collection, id) {
+    try {
+      return await this.database.collection(collection).doc(id).delete();
+    } catch (error) {
+      console.log("error en: delete ", error)
+    }
+  }
+
+  async getById(collection, id) {
+    try {
+      return await this.database.collection(collection).doc(id).get();
+    } catch (error) {
+      console.log("error en: getById ", error)
+    }
+  }
+
+
+  
 }

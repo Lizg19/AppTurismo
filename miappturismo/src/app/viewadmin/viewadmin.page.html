@@ -1,9 +1,15 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>viewadmin</ion-title>
+    <ion-title>AJUSTES DE ADMINISTRADOR</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <h6>Lista de usuarios</h6>
+  <ul>
+    <li *ngFor="let user of listaDeUsuarios" (click)="obtenerPorId(user.id)">{{user.userName}}  <ion-button color="danger" (click)="eliminar(user.id)">Eliminar usuario</ion-button></li>
+    
+  </ul>
+
 
 </ion-content>
