@@ -15,7 +15,7 @@
 <ion-content [fullscreen]="true">
   <ion-img class="img-responsiveMenu" src="../../assets/images/LogoTraevlGo.png"></ion-img>
   <ion-button
-    *ngIf="login == true && rol =='Propietario'"
+    *ngIf="login == true && rol =='propietario'"
     expand="block"
     shape="round"
     (click)="gotoProfile()"
@@ -23,7 +23,7 @@
     Perfil
   </ion-button>
   <ion-button
-    *ngIf="login == true && rol =='Propietario'"
+    *ngIf="login == true && rol =='propietario'"
     expand="block"
     shape="round"
     (click)="gotoPlace()"
@@ -31,14 +31,14 @@
     Agregar un lugar
   </ion-button>
   <ion-button
-    *ngIf="login == true && rol =='Propietario'"
+    *ngIf="login == true && rol =='propietario'"
     expand="block"
     shape="round"
     (click)="gotoViewPlace()"
   >
     Ver mis lugares</ion-button
   >
-  <ion-content *ngIf="login == true && rol =='Turista'">
+  <ion-content *ngIf="login == true && rol =='turista'" >
     <ion-grid>
       <ion-row>
         <ion-col>

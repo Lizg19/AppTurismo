@@ -1,6 +1,9 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Registrar un lugar turístico</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -34,7 +37,6 @@
   </ion-item>
   <ion-item>
     <ion-label position="stacked"> Ubicación </ion-label>
-
   </ion-item>
   <div id="map"></div>
   <ion-item>
@@ -53,7 +55,7 @@
   </ion-item>
 
   <ion-item>
-    <img class="image" [src]="newImage" />
+    <img [src]="newImage" />
   </ion-item>
 
   <ion-button
