@@ -50,12 +50,12 @@
           <div class="col">Características</div>
           <div class="col">Acción</div>
         </div>
-        <div class="row" *ngFor="let userplace of listaLugares" >
+        <div class="row"  *ngFor="let userplace of listaLugares" >
           <div class="col" >{{userplace.place}}</div>
           <div class="col">{{userplace.description}}</div>
           <div class="col">{{userplace.caracteristica}}</div>
           <div class="col"> 
-            <ion-button color="danger" (click)="eliminarLugar(userplace.place)">
+            <ion-button color="danger" (click)="eliminarLugar(userplace.id,userplace.place)">
               <ion-icon name="trash"></ion-icon>
             </ion-button>
             

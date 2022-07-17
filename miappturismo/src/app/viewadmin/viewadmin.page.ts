@@ -43,7 +43,7 @@ export class ViewadminPage implements OnInit {
   }
 
   eliminarLugar(id,place) {
-    this.database.delete(`user/${id}/Lugares/`, place).then(res => {
+    this.database.delete(`user/${id}/Lugares`, place).then(res => {
       this.toast ('Lugar eliminado exitosamente', 'success');
     }).catch(err => {
       console.log("ERROR al eliminar ", err);
