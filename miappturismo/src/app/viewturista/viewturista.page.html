@@ -6,17 +6,22 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-<ion-content *ngFor="let place of listaLugares" >
-  <ion-card >
-    <ion-card-header>
-      <ion-card-subtitle>{{place.description}}</ion-card-subtitle>
-      <ion-card-title>{{place.place}}</ion-card-title>
-    </ion-card-header>
-    <ion-img class="img-responsive" [src]="place.image"></ion-img>
-    <ion-card-content> {{place.caracteristica}} </ion-card-content>
-    <ion-item [routerLink]="['/map',place.latitude, place.longitude]" >
-      <ion-icon color="secondary" name="navigate-circle-outline" slot="start"></ion-icon>
-      <ion-label>Ir a la ubicación</ion-label>
-    </ion-item>
-  </ion-card>
+
+<ion-content >
+  <ion-row>
+    <ion-col sizeLg="4" sizeMd="5" sizeXs="12" *ngFor="let place of listaLugares">
+      <ion-card >
+        <ion-card-header>
+          <ion-card-subtitle>{{place.description}}</ion-card-subtitle>
+          <ion-card-title>{{place.place}}</ion-card-title>
+        </ion-card-header>
+        <ion-img class="img-responsive" [src]="place.image"></ion-img>
+        <ion-card-content> {{place.caracteristica}} </ion-card-content>
+        <ion-item [routerLink]="['/map',place.latitude, place.longitude]" >
+          <ion-icon color="secondary" name="navigate-circle-outline" slot="start"></ion-icon>
+          <ion-label>Ir a la ubicación</ion-label>
+        </ion-item>
+      </ion-card>
+    </ion-col>
+  </ion-row>
 </ion-content>

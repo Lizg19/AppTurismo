@@ -6,7 +6,11 @@ import { DatabaseService } from '../services/database.service';
 import { Geolocation, Geoposition } from '@ionic-native/geolocation/ngx';
 import { Marker } from '../models/marker.model';
 import { CoordInfo } from '../models/coord-info.models';
+<<<<<<< HEAD
 import { userInfo } from 'os';
+=======
+import { User } from '../models/user';
+>>>>>>> 4c256c802a2b89b02520a9a87d79ef90ff59e5dc
 declare var google;
 @Component({
   selector: 'app-viewpropietario',
@@ -17,7 +21,7 @@ export class ViewpropietarioPage implements OnInit {
   nameplace: string;
   descriplace: string;
   characplace: string;
-
+  rol : 'turista' | 'propietario' | 'admin'= null;
   latitude: number;
   longitude: number;
   map = null;
@@ -39,8 +43,8 @@ export class ViewpropietarioPage implements OnInit {
   ) {}
 
   async ngOnInit() {
-    await this.geolocationNative();
-    await this.loadMap();
+    this.geolocationNative();
+    this.loadMap();
    
   }
 
@@ -63,11 +67,23 @@ export class ViewpropietarioPage implements OnInit {
           id:user.uid
         };
         const uid = user.uid;
-        const pathUsuarios = `user/${uid}/Lugares/`;
-        const pathLugares =`Lugares`;
-        const id = this.nameplace;
-        this.database.createDoc(data, pathUsuarios, id);
-        this.database.createDoc(data, pathLugares, id);
+        const path = 'user';
+  
+        this.database.getDoc<User>(path, uid).subscribe( res =>{
+          console.log('datos getDatosuser->',res);
+          if (res){
+            this.rol = res.perfil
+          }
+          console.log("TRAE ADENTRO",this.rol)
+          if(this.rol=="propietario"){
+            console.log(this.rol)
+            const pathUsuarios = `user/${uid}/Lugares/`;
+            const pathLugares =`Lugares`;
+            const id = this.nameplace;
+            this.database.createDoc(data, pathUsuarios, id);
+            this.database.createDoc(data, pathLugares, id);
+          }
+        })
       }
     });
     this.toast('Lugar agregado correctamente', 'success');

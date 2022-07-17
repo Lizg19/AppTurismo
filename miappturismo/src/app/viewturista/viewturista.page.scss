@@ -1,6 +1,6 @@
 .img-responsive{
     width: 100%;
-    height: 400px;
+    height: 300px;
 }
 ion-card{
     --ion-card-background: transparent;
@@ -14,7 +14,7 @@ ion-card{
 @media only screen and (max-width: 1000px) {
     .img-responsive{
         width: 100%;
-        height: 300px;
+        height: 250px;
     }
 }
 @media only screen and (max-width: 600px) {
