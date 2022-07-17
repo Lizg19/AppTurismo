@@ -12,13 +12,12 @@ declare var google;
 })
 export class ViewplacespropietarioPage implements OnInit {
   lugar = {
-    latitude: -0.1877174,
-    longitude: -78.5109762,
-    place: 'Kevin',
-    description: 'Chao',
-    caracteristica: 'HOLA',
-    image:
-      'https://images.unsplash.com/photo-1495562569060-2eec283d3391?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cm9tYW50aWMlMjBwbGFjZXxlbnwwfHwwfHw%3D&w=1000&q=80',
+    latitude: Number,
+    longitude: Number,
+    place: String,
+    description: String,
+    caracteristica: String,
+    image: String,
   };
   listaLugares = [];
   // MAPA
@@ -36,7 +35,6 @@ export class ViewplacespropietarioPage implements OnInit {
     private router: Router
   ) {}
 
-  
   gotoMap(latitude, longitude) {
     console.log(latitude, longitude);
     this.router.navigate(['/map']);
@@ -60,5 +58,4 @@ export class ViewplacespropietarioPage implements OnInit {
       }
     });
   }
-
 }

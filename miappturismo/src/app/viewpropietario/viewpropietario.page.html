@@ -9,13 +9,13 @@
 
 <ion-content>
   <ion-item>
-    <ion-label position="stacked">Nombre del lugar</ion-label>
+    <ion-label position="stacked" class="textInput">Nombre del lugar</ion-label>
     <ion-input type="text" [(ngModel)]="nameplace" name="nameplace">
     </ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label position="stacked">Descripción</ion-label>
+    <ion-label position="stacked" class="textInput">Descripción</ion-label>
     <ion-input
       type="text"
       placeholder="Descripción del lugar"
@@ -26,7 +26,7 @@
   </ion-item>
 
   <ion-item>
-    <ion-label position="stacked">Característica</ion-label>
+    <ion-label position="stacked" class="textInput">Característica</ion-label>
     <ion-input
       placeholder="Característica del lugar"
       [(ngModel)]="characplace"
@@ -36,22 +36,25 @@
     </ion-input>
   </ion-item>
   <ion-item>
-    <ion-label position="stacked"> Ubicación </ion-label>
+    <ion-label position="stacked" class="textInput"> Ubicación </ion-label>
   </ion-item>
   <div id="map"></div>
   <ion-item>
-    <ion-label>Cargar imagen</ion-label>
-    <ion-button>
-      <label for="file-upload">
-        <ion-icon slot="icon-only" name="images"></ion-icon>
-      </label>
-      <input
-        (change)="newImageUpload($event)"
-        id="file-upload"
-        style="display: none"
-        type="file"
-      />
-    </ion-button>
+    <ion-label class="textInput">Cargar imagen</ion-label>
+    
+    <ion-button class="btn-upload"  for="file-upload" >
+        <label for="file-upload">
+          Subir imagen
+          <input
+          (change)="newImageUpload($event)"
+          id="file-upload"
+          style="display: none"
+          type="file"
+          />
+       
+        </label>
+      </ion-button>
+
   </ion-item>
 
   <ion-item>

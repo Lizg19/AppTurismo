@@ -12,35 +12,12 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content>
   <ion-img
     class="img-responsiveMenu"
     src="../../assets/images/LogoTraevlGo.png"
   ></ion-img>
-  <ion-button
-    *ngIf="login == true && rol =='propietario'"
-    expand="block"
-    shape="round"
-    (click)="gotoProfile()"
-  >
-    Perfil
-  </ion-button>
-  <ion-button
-    *ngIf="login == true && rol =='propietario'"
-    expand="block"
-    shape="round"
-    (click)="gotoPlace()"
-  >
-    Agregar un lugar
-  </ion-button>
-  <ion-button
-    *ngIf="login == true && rol =='propietario'"
-    expand="block"
-    shape="round"
-    (click)="gotoViewPlace()"
-  >
-    Ver mis lugares</ion-button
-  >
+
   <ion-content *ngIf="login == true && rol =='propietario'">
     <ion-grid>
       <ion-row>
@@ -48,14 +25,36 @@
           <ion-item style="text-align: center">
             <ion-grid>
               <ion-col>
-                <ion-icon name="map-outline" class="icon-size"></ion-icon>
+                <ion-icon name="person-circle-outline" class="icon-size"></ion-icon>
               </ion-col>
-              <ion-col
-                ><ion-label class="SubtitleTextContent"
-                  >Visita diferentes sitios turisticos desde tu
-                  celular!</ion-label
-                ></ion-col
-              >
+              <ion-col>
+                <ion-button
+                  expand="block"
+                  shape="round"
+                  (click)="gotoProfile()"
+                >
+                  Perfil
+                </ion-button>
+              </ion-col>
+            </ion-grid>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item style="text-align: center">
+            <ion-grid>
+              <ion-col>
+                <ion-icon name="add-circle-outline" class="icon-size"></ion-icon>
+              </ion-col>
+              <ion-col>
+                <ion-button
+                  *ngIf="login == true && rol =='propietario'"
+                  expand="block"
+                  shape="round"
+                  (click)="gotoPlace()"
+                >
+                  Agregar un lugar
+                </ion-button>
+              </ion-col>
             </ion-grid>
           </ion-item>
         </ion-col>
@@ -63,11 +62,15 @@
           <ion-item style="text-align: center; color: none">
             <ion-grid>
               <ion-col>
-                <ion-icon name="pin-outline" class="icon-size"></ion-icon>
+                <ion-icon name="map-outline" class="icon-size"></ion-icon>
               </ion-col>
-              <ion-col
-                ><ion-label class="SubtitleTextContent"
-                  >Ingresa a la ubicacion de cada uno de los sitios!</ion-label
+              <ion-col>
+                <ion-button
+                  expand="block"
+                  shape="round"
+                  (click)="gotoViewPlace()"
+                >
+                  Ver mis lugares</ion-button
                 ></ion-col
               >
             </ion-grid>
@@ -75,16 +78,6 @@
         </ion-col>
       </ion-row>
     </ion-grid>
-
-    <ion-button
-      expand="block"
-      shape="round"
-      class="boton-lugares"
-      id="button-places"
-      (click)="gotoViewTurista()"
-    >
-      Ver sitios turísticos
-    </ion-button>
   </ion-content>
   <ion-content *ngIf="login == true && rol =='turista'">
     <ion-grid>

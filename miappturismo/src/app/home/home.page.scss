@@ -4,10 +4,11 @@
   font-weight: bold;
 }
 .item.item-trns {
-	border-color: rgba(0, 0, 0, 0);
-	background-color: rgba(0, 0, 0, 0);
-	color: white; 
+  border-color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
 }
+
 
 ion-item {
   --ion-item-background: transparent;
@@ -15,14 +16,17 @@ ion-item {
 }
 
 ion-button {
-  #button-places{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+  --box-shadow: none;
+  --border-raduis: 1.8rem;
+  --background: #3696c2;
+
+  text-transform: capitalize;
+  font-size: 1.2rem;
+  font-weight: 600px;
+  height: 70px;
 }
 
-ion-card{
+ion-card {
   --ion-card-background: transparent;
   --ion-card-border-color: transparent;
 }
@@ -32,12 +36,12 @@ ion-card{
   text-align: center;
   font-family: "Lucida Grande";
 }
-.SubtitleTextContent{
+.SubtitleTextContent {
   font-size: 20px;
   text-align: center;
   font-family: "Franklin Gothic Medium";
 }
-.icon-size{
+.icon-size {
   font-size: 125px;
   color: goldenrod;
 }
@@ -52,6 +56,13 @@ ion-card{
   --background: white;
   --background-size: cover;
   // width:25rem;
+}
+ion-content {
+  --overflow: hidden;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 @media only screen and (max-width: 1000px) {
   .TittleText {
@@ -68,27 +79,66 @@ ion-card{
     text-align: center;
     font-family: "Franklin Gothic Medium";
   }
-  .SubtitleTextContent{
+  .SubtitleTextContent {
     font-size: 20px;
     text-align: center;
     font-family: "Franklin Gothic Medium";
   }
-  .icon-size{
+  .icon-size {
     font-size: 100px;
   }
+  ion-content {
+    --overflow: hidden;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 688px) {
   .TittleText {
     font-size: 20px;
     font-family: "Lucida Sans";
     font-weight: bold;
   }
+  .img-responsiveMenu {
+    width: 100%;
+    height: 350px;
+  }
+  .SubtitleText {
+    font-size: 20px;
+    text-align: center;
+    font-family: "Franklin Gothic Medium";
+  }
+  .SubtitleTextContent {
+    font-size: 20px;
+    text-align: center;
+    font-family: "Franklin Gothic Medium";
+  }
+  .icon-size {
+    font-size: 100px;
+  }
+  ion-content {
+    --overflow: hidden;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+@media only screen and (max-width: 680px) {
+  .TittleText {
+    font-size: 20px;
+    font-family: "Lucida Sans";
+    font-weight: bold;
+  }
+
   .SubtitleText {
     font-size: 15px;
     text-align: center;
     font-family: "Franklin Gothic Medium";
   }
-  .SubtitleTextContent{
+  .SubtitleTextContent {
     font-size: 15px;
     text-align: center;
     font-family: "Franklin Gothic Medium";
@@ -97,7 +147,14 @@ ion-card{
     width: 100%;
     height: 50%;
   }
-  .icon-size{
+  .icon-size {
     font-size: 50px;
+  }
+  ion-content {
+    --overflow: show;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }

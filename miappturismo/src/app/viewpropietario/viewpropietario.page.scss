@@ -1,31 +1,52 @@
-ion-content{
-    #map{
-        width: 100%;
-        height: 25%;
-        opacity: 0;
-        transition: opacity 150ms ease-in;
-        display: block;
-        &.show-map{
-            opacity: 1;
-        }
+ion-content {
+  #map {
+    width: 100%;
+    height: 25%;
+    opacity: 0;
+    transition: opacity 150ms ease-in;
+    display: block;
+    &.show-map {
+      opacity: 1;
     }
+  }
+}
+.img-responsive {
+  width: 100%px;
+  height: 350px;
+}
+.textInput{
+    font-size: 15px;
+}
+.icon-style{
+    font-size: 20px;
     
 }
-.img-responsive{
-    width: 100%px;
-    height: 350px;
-} 
+ion-input {
+  font-size: 17px;
+  outline: none;
+  padding: 1rem;
+  background: none;
+  z-index: 1;
+}
+
+
+.btn-upload{
+    width: 100px;
+    height: 25px;
+    background-color: rgb(47, 119, 220);
+    color: black;
+}
+
+
 @media only screen and (max-width: 1000px) {
-    .img-responsive{
-        width: 400px;
-        height: 300px;
-    }
+  .img-responsive {
+    width: 400px;
+    height: 300px;
+  }
 }
 @media only screen and (max-width: 600px) {
-    .img-responsive{
-        width: 100%;
-        height: 100%;
-    }
-    
-
+  .img-responsive {
+    width: 100%;
+    height: 100%;
+  }
 }
