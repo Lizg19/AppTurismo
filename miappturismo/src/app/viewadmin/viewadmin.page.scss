@@ -2,19 +2,7 @@ body {
     cursor: url('https://ionicframework.com/img/finger.png'), auto;
 }
 
-.header .col {
-    background-color:lightgrey;
-}
-
-.col {
-    border: solid 1px grey;
-  
-}
-
-.col:last-child {
-    border-right: solid 1px grey;
-}
-
-.row:last-child .col {
-    border-bottom: solid 1px grey;
-}
+ion-item {
+    --ion-item-background: transparent;
+    --ion-item-border-color: transparent;
+  }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { ToastController } from '@ionic/angular';
 import { DatabaseService } from '../services/database.service';
 
@@ -17,6 +18,7 @@ export class ViewadminPage implements OnInit {
   constructor(
     private database: DatabaseService,
     private toastr: ToastController,
+    public afauth: AngularFireAuth,
   ) { }
 
 
@@ -41,6 +43,8 @@ export class ViewadminPage implements OnInit {
       console.log("ERROR al eliminar ", err);
     });
   }
+  
+  
 
   eliminarLugar(id,place) {
     this.database.delete(`user/${id}/Lugares/`, place).then(res => {

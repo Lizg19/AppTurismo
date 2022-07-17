@@ -25,7 +25,10 @@
           <ion-item style="text-align: center">
             <ion-grid>
               <ion-col>
-                <ion-icon name="add-circle-outline" class="icon-size"></ion-icon>
+                <ion-icon
+                  name="add-circle-outline"
+                  class="icon-size"
+                ></ion-icon>
               </ion-col>
               <ion-col>
                 <ion-button
@@ -107,15 +110,20 @@
     </ion-button>
   </ion-content>
 
-  <ion-button
-    *ngIf="login == true && rol =='admin'"
-    expand="block"
-    shape="round"
-    (click)="gotoViewAdmin()"
-  >
-    Administrador</ion-button
-  >
-
+  <ion-content *ngIf="login == true && rol =='admin'">
+    <ion-item style="text-align: center; color: none" (click)="gotoViewAdmin()">
+      <ion-grid>
+        <ion-col>
+          <ion-icon name="settings-outline" class="icon-size"></ion-icon>
+        </ion-col>
+        <ion-col
+          ><ion-label class="SubtitleTextContent"
+            >Administra los lugares y los usuarios de la App!</ion-label
+          ></ion-col
+        >
+      </ion-grid>
+    </ion-item>
+  </ion-content>
   <ion-button
     *ngIf="login == false"
     expand="block"
