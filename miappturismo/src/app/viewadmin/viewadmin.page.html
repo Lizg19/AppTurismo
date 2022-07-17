@@ -7,10 +7,10 @@
 <ion-content>
   <ion-item>
     <ion-text>
-      <h3>Elminar el usuario que seleccionaste!</h3>
+      <h3>Eliminar un usuario </h3>
     </ion-text>
   </ion-item>
-  <ion-item *ngFor="let user of listaDeUsuarios" (click)="lugaresPorId(user.id)">
+  <ion-item   *ngFor="let user of listaDeUsuarios" (click)="lugaresPorId(user.id)">
     <ion-avatar slot="start">
       <img
         src="https://ui-avatars.com/api/?name={{user.userName}}&background=0D8ABC&color=fff&size=128"
@@ -36,11 +36,40 @@
   <ion-item *ngFor="let userplace of listaLugares">
     <ion-label>
       <h2>{{userplace.place}}</h2>
-      <h3>{{userplace.description}}</h3>
-      <p>{{userplace.caracteristica}}</p>
+
+
+
+      <ion-item>
+        <ion-label position ="stacked">Descripción:</ion-label>
+        <ion-textarea rows="2" cols="60"  type="text" [(ngModel)]="userplace.description"></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position ="stacked">Características:</ion-label>
+        <ion-textarea rows="5" cols="60"  type="text" [(ngModel)]="userplace.caracteristica"></ion-textarea>
+      </ion-item>
+
+      <ion-img class="img-responsive" [src]="userplace.image"></ion-img>
+
+
+      <ion-item>
+        <ion-label class="textInput">Cambiar imagen del lugar</ion-label>
+        <ion-button class="btn-upload" for="file-upload">
+          <label for="file-upload">
+            Subir imagen
+            <input (change)="newImageUpload($event)" id="file-upload" style="display: none" type="file" />
+          </label>
+        </ion-button>
+      </ion-item>
+
     </ion-label>
-    <ion-item (click)="eliminar(user.id)">
+    <ion-item (click)="eliminarLugar(userplace.id,userplace.place)">
       <ion-icon color="danger" name="trash" slot="start"></ion-icon>
+    </ion-item>
+
+    <ion-item >
+      <ion-icon (click)="newLugar =  userplace;modificar(userplace.id,userplace.place,userplace.image)"color="success" name="pencil"></ion-icon>
+
     </ion-item>
   </ion-item>
 </ion-content>

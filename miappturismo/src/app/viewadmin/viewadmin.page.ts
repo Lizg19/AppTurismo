@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { ToastController } from '@ionic/angular';
+import { LoadingController, ToastController } from '@ionic/angular';
 import { DatabaseService } from '../services/database.service';
 
 @Component({
@@ -14,11 +14,18 @@ export class ViewadminPage implements OnInit {
   listaDeUsuarios = [];
   listaLugares = [];
 
+  newLugar = []
+  newFile: '';
+  newImage = '';
+
+
 
   constructor(
     private database: DatabaseService,
     private toastr: ToastController,
     public afauth: AngularFireAuth,
+    private LoadingCtrl: LoadingController,
+
   ) { }
 
 
@@ -76,6 +83,80 @@ export class ViewadminPage implements OnInit {
           });
 
     
+  }
+
+  async modificar(id, place,imagen) {
+    const loading = await this.LoadingCtrl.create({
+      message: 'Modificando...',
+      spinner: 'crescent',
+      showBackdrop: true
+    });
+
+    loading.present();
+    const path = 'Lugares';
+    const name = place;
+    const res = await this.database.uploadImage(this.newFile, path, name);
+    let data ={}
+    if (this.newFile!=='' && this.newImage!==''){
+      data = {
+        image: res
+      }
+    } else{
+      data = {  
+        image: imagen
+      }
+    }
+
+    
+    this.database.updateDoc(this.newLugar, `user/${id}/Lugares`, place).then(res => {
+
+      this.database.updateDoc(data, `user/${id}/Lugares`, place).then(res => {
+
+      }).catch(err => {
+        console.log("ERROR al modificar ", err);
+
+      });
+          
+      
+
+      this.database.updateDoc(this.newLugar, '/Lugares/', place).then(res => {
+
+      }).catch(err => {
+        console.log("ERROR al modificar ", err);
+      });
+
+      
+      this.database.updateDoc(data, '/Lugares/', place).then(res => {
+
+      }).catch(err => {
+        console.log("ERROR al modificar ", err);
+      });
+      
+
+       
+      
+      loading.dismiss();
+      this.toast('Lugar modificado exitosamente', 'success');
+    }).catch(err => {
+      loading.dismiss();
+      console.log("ERROR al modificar ", err);
+    });
+
+
+
+  }
+
+  async newImageUpload(event: any) {
+    if (event.target.files && event.target.files[0]) {
+      this.newFile = event.target.files[0];
+      const reader = new FileReader();
+      reader.onload = (image) => {
+        this.newImage = image.target.result as string;
+      };
+      reader.readAsDataURL(event.target.files[0]);
+    }
+    this.toast('Imagen nueva cargada correctamente.', 'success');
+
   }
 
   async toast (message,status){
