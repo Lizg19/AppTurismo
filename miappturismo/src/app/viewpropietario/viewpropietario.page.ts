@@ -6,6 +6,7 @@ import { DatabaseService } from '../services/database.service';
 import { Geolocation, Geoposition } from '@ionic-native/geolocation/ngx';
 import { Marker } from '../models/marker.model';
 import { CoordInfo } from '../models/coord-info.models';
+import { userInfo } from 'os';
 import { User } from '../models/user';
 declare var google;
 @Component({
@@ -49,17 +50,19 @@ export class ViewpropietarioPage implements OnInit {
     const name = this.nameplace;
     const res = await this.database.uploadImage(this.newFile, path, name);
 
-    const data = {
-      latitude: this.latitude,
-      longitude: this.longitude,
-      place: this.nameplace,
-      description: this.descriplace,
-      caracteristica: this.characplace,
-      image: res,
-    };
+  
 
     this.afauth.onAuthStateChanged((user) => {
       if (user) {
+        const data = {
+          latitude: this.latitude,
+          longitude: this.longitude,
+          place: this.nameplace,
+          description: this.descriplace,
+          caracteristica: this.characplace,
+          image: res,
+          id:user.uid
+        };
         const uid = user.uid;
         const path = 'user';
   
