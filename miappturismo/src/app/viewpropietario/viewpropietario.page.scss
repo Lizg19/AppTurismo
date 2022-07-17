@@ -15,7 +15,7 @@ ion-content {
   height: 350px;
 }
 .textInput{
-    font-size: 15px;
+    font-size: 25px;
 }
 .icon-style{
     font-size: 20px;
@@ -34,7 +34,7 @@ ion-input {
     width: 100px;
     height: 25px;
     background-color: rgb(47, 119, 220);
-    color: black;
+    
 }
 
 
@@ -43,10 +43,16 @@ ion-input {
     width: 400px;
     height: 300px;
   }
+  .textInput{
+    font-size: 20px;
+}
 }
 @media only screen and (max-width: 600px) {
   .img-responsive {
     width: 100%;
     height: 100%;
   }
+  .textInput{
+    font-size: 15px;
+}
 }

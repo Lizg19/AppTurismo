@@ -41,21 +41,19 @@
   <div id="map"></div>
   <ion-item>
     <ion-label class="textInput">Cargar imagen</ion-label>
-    
-    <ion-button class="btn-upload"  for="file-upload" >
-        <label for="file-upload">
-          Subir imagen
-          <input
+    <ion-button class="btn-upload" for="file-upload">
+      <label for="file-upload">
+        Subir imagen
+        <input
           (change)="newImageUpload($event)"
           id="file-upload"
           style="display: none"
           type="file"
-          />
-       
-        </label>
-      </ion-button>
-
+        />
+      </label>
+    </ion-button>
   </ion-item>
+
 
   <ion-item>
     <img [src]="newImage" />
