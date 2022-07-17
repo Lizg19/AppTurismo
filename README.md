@@ -48,4 +48,3 @@ Para poder instalar de forma local el proyecto se seguirá la siguiente secuenci
  npm install
  ionic serve
 ```
-
