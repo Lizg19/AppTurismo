@@ -44,7 +44,7 @@
 Para poder instalar de forma local el proyecto se seguirá la siguiente secuencia de pasos
 ```
  git clone https://github.com/Lizg19/AppTurismo.git
- navegar a la carpeta miappturismo (cd miappturismo)
+ cd miappturismo
  npm install
  ionic serve
 ```
