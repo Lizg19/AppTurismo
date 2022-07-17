@@ -6,11 +6,8 @@ import { DatabaseService } from '../services/database.service';
 import { Geolocation, Geoposition } from '@ionic-native/geolocation/ngx';
 import { Marker } from '../models/marker.model';
 import { CoordInfo } from '../models/coord-info.models';
-<<<<<<< HEAD
 import { userInfo } from 'os';
-=======
 import { User } from '../models/user';
->>>>>>> 4c256c802a2b89b02520a9a87d79ef90ff59e5dc
 declare var google;
 @Component({
   selector: 'app-viewpropietario',
