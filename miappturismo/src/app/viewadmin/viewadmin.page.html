@@ -5,69 +5,42 @@
 </ion-header>
 
 <ion-content>
-
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <link href="http://code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet">
-    <script src="https://code.ionicframework.com/nightly/js/ionic.bundle.js"></script>
- </head>
-
-  <body ng-controller="MyCtrl as ctrl">
-    <ion-header-bar class="bar-stable">
-        <h1 class="title">Lista de Usuarios</h1>
-    </ion-header-bar>
-    <ion-content>
-        <div class="row header">
-          <div class="col">Nombre de usuario</div>
-          <div class="col">Correo</div>
-          <div class="col">Perfil</div>
-          <div class="col">Acción</div>
-        </div>
-        <div class="row" *ngFor="let user of listaDeUsuarios" (click)="lugaresPorId(user.id)" >
-          <div class="col" >{{user.userName}}</div>
-          <div class="col">{{user.userEmail}}</div>
-          <div class="col">{{user.perfil}}</div>
-          <div class="col"> 
-            <ion-button color="danger" (click)="eliminar(user.id)">
-              <ion-icon name="trash"></ion-icon>
-            </ion-button>
-
-
-            <ion-button color="primary"  >
-              <ion-icon name="create" ></ion-icon>
-            </ion-button>
-          </div>
-        </div>
-        <br>
-        <br>
-
-        <ion-label>Seleccione un usuario para mostrar los lugares registrados</ion-label>
-
-        <div class="row header">
-          <div class="col">Nombre del lugar</div>
-          <div class="col">Descripción</div>
-          <div class="col">Características</div>
-          <div class="col">Acción</div>
-        </div>
-        <div class="row"  *ngFor="let userplace of listaLugares" >
-          <div class="col" >{{userplace.place}}</div>
-          <div class="col">{{userplace.description}}</div>
-          <div class="col">{{userplace.caracteristica}}</div>
-          <div class="col"> 
-            <ion-button color="danger" (click)="eliminarLugar(userplace.id,userplace.place)">
-              <ion-icon name="trash"></ion-icon>
-            </ion-button>
-            
-          </div>
-          
-        </div>
-
-    </ion-content>
-  </body>
-
-  
-    
-  
-
+  <ion-item>
+    <ion-text>
+      <h3>Elminar el usuario que seleccionaste!</h3>
+    </ion-text>
+  </ion-item>
+  <ion-item *ngFor="let user of listaDeUsuarios" (click)="lugaresPorId(user.id)">
+    <ion-avatar slot="start">
+      <img
+        src="https://ui-avatars.com/api/?name={{user.userName}}&background=0D8ABC&color=fff&size=128"
+      />
+    </ion-avatar>
+    <ion-label>
+      <h2>{{user.userName}}</h2>
+      <h3>{{user.userEmail}}</h3>
+      <p>{{user.perfil}}</p>
+    </ion-label>
+    <ion-item (click)="eliminar(user.id)">
+      <ion-icon color="danger" name="trash"></ion-icon>
+    </ion-item>
+    <ion-item *ngIf="user.perfil=='propietario'" (click)="lugaresPorId(user.id)">
+      <ion-icon color="success" name="pencil"></ion-icon>
+    </ion-item>
+  </ion-item>
+  <ion-item>
+    <ion-text>
+      <h3>Selecciona una persona para mostrar los lugares ingresados</h3>
+    </ion-text>
+  </ion-item>
+  <ion-item *ngFor="let userplace of listaLugares">
+    <ion-label>
+      <h2>{{userplace.place}}</h2>
+      <h3>{{userplace.description}}</h3>
+      <p>{{userplace.caracteristica}}</p>
+    </ion-label>
+    <ion-item (click)="eliminar(user.id)">
+      <ion-icon color="danger" name="trash" slot="start"></ion-icon>
+    </ion-item>
+  </ion-item>
 </ion-content>
