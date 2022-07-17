@@ -41,11 +41,12 @@
 
 
 # PROCESO DE INSTALACIÓN DE FORMA LOCAL
-Para poder instalar de forma local el proyecto se seguirá la siguiente secuencia de pasos
+Para poder instalar de forma local el proyecto se seguirá la siguiente secuencia de comandos
 ```
  git clone https://github.com/Lizg19/AppTurismo.git
  cd miappturismo
  npm install
  ionic serve
+ 
 ```
 
