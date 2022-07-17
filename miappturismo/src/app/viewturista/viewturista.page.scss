@@ -1,0 +1,27 @@
+.img-responsive{
+    width: 100%;
+    height: 400px;
+}
+ion-card{
+    --ion-card-background: transparent;
+    --ion-card-border-color: transparent;
+  }
+
+  ion-item {
+    --ion-item-background: transparent;
+    --ion-item-border-color: transparent;
+  }  
+@media only screen and (max-width: 1000px) {
+    .img-responsive{
+        width: 100%;
+        height: 300px;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .img-responsive{
+        width: 100%;
+        height: 100%;
+    }
+    
+
+}

@@ -1,27 +1,103 @@
-#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+.TittleText {
+  font-size: 30px;
+  font-family: "Lucida Sans";
+  font-weight: bold;
+}
+.item.item-trns {
+	border-color: rgba(0, 0, 0, 0);
+	background-color: rgba(0, 0, 0, 0);
+	color: white; 
 }
 
-#container strong {
+ion-item {
+  --ion-item-background: transparent;
+  --ion-item-border-color: transparent;
+}
+
+ion-button {
+  #button-places{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+ion-card{
+  --ion-card-background: transparent;
+  --ion-card-border-color: transparent;
+}
+
+.SubtitleText {
   font-size: 20px;
-  line-height: 26px;
+  text-align: center;
+  font-family: "Lucida Grande";
 }
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+.SubtitleTextContent{
+  font-size: 20px;
+  text-align: center;
+  font-family: "Franklin Gothic Medium";
 }
-
-#container a {
-  text-decoration: none;
+.icon-size{
+  font-size: 125px;
+  color: goldenrod;
+}
+.img-responsiveMenu {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  width: 100%;
+  height: 450px;
+}
+.boton-lugares {
+  --color: black;
+  --background: white;
+  --background-size: cover;
+  // width:25rem;
+}
+@media only screen and (max-width: 1000px) {
+  .TittleText {
+    font-size: 20px;
+    font-family: "Lucida Sans";
+    font-weight: bold;
+  }
+  .img-responsiveMenu {
+    width: 100%;
+    height: 350px;
+  }
+  .SubtitleText {
+    font-size: 20px;
+    text-align: center;
+    font-family: "Franklin Gothic Medium";
+  }
+  .SubtitleTextContent{
+    font-size: 20px;
+    text-align: center;
+    font-family: "Franklin Gothic Medium";
+  }
+  .icon-size{
+    font-size: 100px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .TittleText {
+    font-size: 20px;
+    font-family: "Lucida Sans";
+    font-weight: bold;
+  }
+  .SubtitleText {
+    font-size: 15px;
+    text-align: center;
+    font-family: "Franklin Gothic Medium";
+  }
+  .SubtitleTextContent{
+    font-size: 15px;
+    text-align: center;
+    font-family: "Franklin Gothic Medium";
+  }
+  .img-responsiveMenu {
+    width: 100%;
+    height: 50%;
+  }
+  .icon-size{
+    font-size: 50px;
+  }
 }
