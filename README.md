@@ -9,6 +9,7 @@
 
 ### Interfaz para ver los lugares registrados anteriormente
 - Dentro de esta interfaz se podrán editar la descripción del lugar, la carácteristica que posee y cambiar la fotografía.
+
 ![3](https://user-images.githubusercontent.com/65980001/179426759-8e4c553d-d2b7-44cb-a13f-aa96d62853a5.jpg)
 
 # TURISTA
