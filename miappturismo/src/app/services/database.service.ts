@@ -30,6 +30,7 @@ export class DatabaseService {
     const collection = this.database.collection(path);
     return collection.doc(id).delete();
   }
+  
   // ACTUALIZA UN DOCUMENTO DE LA BASE
   updateDoc(data: any, path: string, id: string) {
     const collection = this.database.collection(path);
