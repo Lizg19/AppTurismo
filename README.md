@@ -47,6 +47,5 @@ Para poder instalar de forma local el proyecto se seguirá la siguiente secuenci
  cd miappturismo
  npm install
  ionic serve
- 
 ```
 
