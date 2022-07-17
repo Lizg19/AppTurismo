@@ -7,9 +7,42 @@
 <ion-content>
   <h6>Lista de usuarios</h6>
   <ul>
-    <li *ngFor="let user of listaDeUsuarios" (click)="obtenerPorId(user.id)">{{user.userName}}  <ion-button color="danger" (click)="eliminar(user.id)">Eliminar usuario</ion-button></li>
+    <li *ngFor="let user of listaDeUsuarios" (click)="obtenerPorId(user.id)">{{user.userName}} </li>
     
   </ul>
 
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <link href="http://code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet">
+    <script src="https://code.ionicframework.com/nightly/js/ionic.bundle.js"></script>
+ </head>
+
+  <body ng-controller="MyCtrl as ctrl">
+    <ion-header-bar class="bar-stable">
+        <h1 class="title">Service Provider Details</h1>
+    </ion-header-bar>
+    <ion-content>
+        <div class="row header">
+          <div class="col">Nombre de usuario</div>
+          <div class="col">Correo</div>
+          <div class="col">Perfil</div>
+          <div class="col">Acción</div>
+        </div>
+        <div class="row" *ngFor="let user of listaDeUsuarios" >
+          <div class="col" >{{user.userName}}</div>
+          <div class="col">{{user.userEmail}}</div>
+          <div class="col">{{user.perfil}}</div>
+          <div class="col"> 
+            <ion-button color="danger" (click)="eliminar(user.id)">
+              <ion-icon name="trash"></ion-icon>
+            </ion-button>
+            <ion-button color="primary" >
+              <ion-icon name="create"></ion-icon>
+            </ion-button>
+          </div>
+        </div>
+    </ion-content>
+  </body>
 
 </ion-content>
