@@ -48,3 +48,4 @@ Para poder instalar de forma local el proyecto se seguirá la siguiente secuenci
  npm install
  ionic serve
 ```
+> Link del video: https://youtu.be/j4vVwyXgNd8
