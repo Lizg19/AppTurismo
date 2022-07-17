@@ -7,10 +7,13 @@
 <ion-content>
   <ion-item>
     <ion-text>
-      <h3>Eliminar un usuario </h3>
+      <h3>Eliminar un usuario</h3>
     </ion-text>
   </ion-item>
-  <ion-item   *ngFor="let user of listaDeUsuarios" (click)="lugaresPorId(user.id)">
+  <ion-item
+    *ngFor="let user of listaDeUsuarios"
+    (click)="lugaresPorId(user.id)"
+  >
     <ion-avatar slot="start">
       <img
         src="https://ui-avatars.com/api/?name={{user.userName}}&background=0D8ABC&color=fff&size=128"
@@ -24,7 +27,10 @@
     <ion-item (click)="eliminar(user.id)">
       <ion-icon color="danger" name="trash"></ion-icon>
     </ion-item>
-    <ion-item *ngIf="user.perfil=='propietario'" (click)="lugaresPorId(user.id)">
+    <ion-item
+      *ngIf="user.perfil=='propietario'"
+      (click)="lugaresPorId(user.id)"
+    >
       <ion-icon color="success" name="pencil"></ion-icon>
     </ion-item>
   </ion-item>
@@ -33,43 +39,58 @@
       <h3>Selecciona una persona para mostrar los lugares ingresados</h3>
     </ion-text>
   </ion-item>
+
   <ion-item *ngFor="let userplace of listaLugares">
-    <ion-label>
-      <h2>{{userplace.place}}</h2>
-
-
-
-      <ion-item>
-        <ion-label position ="stacked">Descripción:</ion-label>
-        <ion-textarea rows="2" cols="60"  type="text" [(ngModel)]="userplace.description"></ion-textarea>
-      </ion-item>
-
-      <ion-item>
-        <ion-label position ="stacked">Características:</ion-label>
-        <ion-textarea rows="5" cols="60"  type="text" [(ngModel)]="userplace.caracteristica"></ion-textarea>
-      </ion-item>
-
-      <ion-img class="img-responsive" [src]="userplace.image"></ion-img>
-
-
-      <ion-item>
-        <ion-label class="textInput">Cambiar imagen del lugar</ion-label>
-        <ion-button class="btn-upload" for="file-upload">
-          <label for="file-upload">
-            Subir imagen
-            <input (change)="newImageUpload($event)" id="file-upload" style="display: none" type="file" />
-          </label>
-        </ion-button>
-      </ion-item>
-
-    </ion-label>
-    <ion-item (click)="eliminarLugar(userplace.id,userplace.place)">
-      <ion-icon color="danger" name="trash" slot="start"></ion-icon>
-    </ion-item>
-
-    <ion-item >
-      <ion-icon (click)="newLugar =  userplace;modificar(userplace.id,userplace.place,userplace.image)"color="success" name="pencil"></ion-icon>
-
-    </ion-item>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-label position="stacked">Titulo:</ion-label>
+          <ion-text> <p>{{userplace.place}}</p></ion-text>
+          <ion-label position="stacked">Descripción:</ion-label>
+          <ion-textarea
+            autoGrow="true"
+            type="text"
+            [(ngModel)]="userplace.description"
+          ></ion-textarea>
+        </ion-col>
+        <!-- CARACTERISTICAS -->
+        <ion-col>
+          <ion-label position="stacked">Características:</ion-label>
+          <ion-textarea
+            autoGrow="true"
+            type="text"
+            [(ngModel)]="userplace.caracteristica"
+          ></ion-textarea>
+        </ion-col>
+        <!-- IMAGEN -->
+        <ion-col>
+          <ion-img class="img-responsive" [src]="userplace.image"></ion-img>
+          <ion-label class="textInput">Cambiar imagen del lugar</ion-label>
+          <ion-button class="btn-upload" for="file-upload">
+            <label for="file-upload">
+              Subir imagen
+              <input
+                (change)="newImageUpload($event)"
+                id="file-upload"
+                style="display: none"
+                type="file"
+              />
+            </label>
+          </ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-item (click)="eliminarLugar(userplace.id,userplace.place)">
+            <ion-icon color="danger" name="trash" slot="start"></ion-icon>
+            <ion-label>Eliminar</ion-label>
+          </ion-item>
+          <ion-item
+            (click)="newLugar =  userplace;modificar(userplace.id,userplace.place,userplace.image)"
+          >
+            <ion-icon color="success" name="pencil" slot="start"></ion-icon>
+            <ion-label>Modificar</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-item>
 </ion-content>
