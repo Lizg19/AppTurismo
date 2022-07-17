@@ -95,29 +95,41 @@ export class ViewplacespropietarioPage implements OnInit {
     const path = 'Lugares';
     const name = place;
     const res = await this.database.uploadImage(this.newFile, path, name);
+    let data ={}
 
-    const data = {
-      image: res
+    if (this.newFile!=='' && this.newImage!==''){
+      data = {
+        image: res
+      }
+    } else{
+      data = {  
+        image: this.lugar.image
+      }
     }
 
     this.database.updateDoc(this.newLugar, `user/${id}/Lugares`, place).then(res => {
-      this.database.updateDoc(data, `user/${id}/Lugares`, place).then(res => {
 
-      }).catch(err => {
+  
+        this.database.updateDoc(data, `user/${id}/Lugares`, place).then(res => {
 
-      });
+        }).catch(err => {
+
+        });
+      
 
       this.database.updateDoc(this.newLugar, '/Lugares/', place).then(res => {
 
       }).catch(err => {
         console.log("ERROR al modificar ", err);
       });
+      
 
-      this.database.updateDoc(data, '/Lugares/', place).then(res => {
+        this.database.updateDoc(data, '/Lugares/', place).then(res => {
 
-      }).catch(err => {
-        console.log("ERROR al modificar ", err);
-      });
+        }).catch(err => {
+          console.log("ERROR al modificar ", err);
+        });
+      
       loading.dismiss();
       this.toast('Lugar modificado exitosamente', 'success');
     }).catch(err => {
