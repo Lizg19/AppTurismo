@@ -28,16 +28,16 @@
       <ion-icon color="success" name="pencil"></ion-icon>
     </ion-item>
   </ion-item>
+
   <ion-item>
     <ion-text>
       <h3>Selecciona una persona para mostrar los lugares ingresados</h3>
     </ion-text>
   </ion-item>
-  <ion-item *ngFor="let userplace of listaLugares">
+
+  <ion-item  *ngFor="let userplace of listaLugares" >
     <ion-label>
-      <h2>{{userplace.place}}</h2>
-
-
+      <ion-label>{{userplace.place}}</ion-label>
 
       <ion-item>
         <ion-label position ="stacked">Descripción:</ion-label>
@@ -49,7 +49,7 @@
         <ion-textarea rows="5" cols="60"  type="text" [(ngModel)]="userplace.caracteristica"></ion-textarea>
       </ion-item>
 
-      <ion-img class="img-responsive" [src]="userplace.image"></ion-img>
+      <ion-img style="width: 90%; height: 90%;" [src]="userplace.image"></ion-img>
 
 
       <ion-item>
