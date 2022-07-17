@@ -11,6 +11,8 @@ export class ViewadminPage implements OnInit {
 
  
   listaDeUsuarios = [];
+  listaLugares = [];
+
 
   constructor(
     private database: DatabaseService,
@@ -40,15 +42,31 @@ export class ViewadminPage implements OnInit {
     });
   }
 
-  obtenerPorId(id) {
+  eliminarLugar(id,place) {
+    this.database.delete(`user/${id}/Lugares/`, place).then(res => {
+      this.toast ('Lugar eliminado exitosamente', 'success');
+    }).catch(err => {
+      console.log("ERROR al eliminar ", err);
+    });
+  }
 
-    this.database.getById('user', id).then(res => {
-      res.subscribe(docRef => {
-        let usuario = docRef.data();
-        usuario['id'] = docRef.id;
-        console.log(usuario)
-      })
-    })
+  lugaresPorId(id) {
+
+    const uid = id;
+        this.database
+          .getPlaces(`user/${uid}/Lugares/`)
+          .then((firebaseResponse) => {
+            firebaseResponse.subscribe((listaLugaresRes) => {
+              this.listaLugares = listaLugaresRes.map((places) => {
+                let lugar = places.payload.doc.data();
+
+                return lugar;
+              });
+              console.log(this.listaLugares);
+            });
+          });
+
+    
   }
 
   async toast (message,status){
