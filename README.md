@@ -43,8 +43,8 @@
 # PROCESO DE INSTALACIÓN DE FORMA LOCAL
 Para poder instalar de forma local el proyecto se seguirá la siguiente secuencia de pasos
 ```
-1.- git clone
-2.- npm install
-3.- ionic serve
+ git clone
+ npm install
+ ionic serve
 ```
 
