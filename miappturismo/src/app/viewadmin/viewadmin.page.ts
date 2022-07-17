@@ -86,6 +86,8 @@ export class ViewadminPage implements OnInit {
   }
 
   async modificar(id, place,imagen) {
+    console.log("imagen anterior",imagen);
+    const imagenAnterior=imagen
     const loading = await this.LoadingCtrl.create({
       message: 'Modificando...',
       spinner: 'crescent',
@@ -102,8 +104,8 @@ export class ViewadminPage implements OnInit {
         image: res
       }
     } else{
-      data = {  
-        image: imagen
+      data = {
+        image:imagenAnterior
       }
     }
 
