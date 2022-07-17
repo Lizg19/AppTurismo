@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
-import { ToastController } from '@ionic/angular';
+import { LoadingController, ToastController } from '@ionic/angular';
 import { DatabaseService } from '../services/database.service';
 import { Geolocation, Geoposition } from '@ionic-native/geolocation/ngx';
 import { Marker } from '../models/marker.model';
@@ -36,7 +36,9 @@ export class ViewpropietarioPage implements OnInit {
     public afauth: AngularFireAuth,
     public geolocation: Geolocation,
     private router: Router,
-    private toastr: ToastController
+    private toastr: ToastController,
+    private LoadingCtrl: LoadingController,
+
   ) {}
 
   async ngOnInit() {
@@ -46,13 +48,20 @@ export class ViewpropietarioPage implements OnInit {
   }
 
   async guardarProducto() {
+    const loading = await this.LoadingCtrl.create({
+      message: 'Guardando lugar',
+      spinner: 'crescent',
+      showBackdrop: true
+    });
+    loading.present();
+
+
     const path = 'Lugares';
     const name = this.nameplace;
     const res = await this.database.uploadImage(this.newFile, path, name);
 
-  
-
     this.afauth.onAuthStateChanged((user) => {
+
       if (user) {
         const data = {
           latitude: this.latitude,
@@ -83,6 +92,7 @@ export class ViewpropietarioPage implements OnInit {
         })
       }
     });
+    loading.dismiss();
     this.toast('Lugar agregado correctamente', 'success');
     this.router.navigate(['/home']);
   }

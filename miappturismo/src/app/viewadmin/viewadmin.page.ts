@@ -48,6 +48,11 @@ export class ViewadminPage implements OnInit {
     }).catch(err => {
       console.log("ERROR al eliminar ", err);
     });
+    this.database.delete(`Lugares`, place).then(res => {
+      
+    }).catch(err => {
+      console.log("ERROR al eliminar ", err);
+    });
   }
 
   lugaresPorId(id) {

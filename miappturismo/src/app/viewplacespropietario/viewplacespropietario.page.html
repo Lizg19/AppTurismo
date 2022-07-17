@@ -7,23 +7,54 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content >
+<ion-content>
   <ion-row>
     <ion-col *ngFor="let place of listaLugares" size-xl="4" size-lg="4" size-md="5" size-sm="6" size-xs="12">
-      <ion-card >
+      <ion-card>
+
         <ion-card-header>
-          <ion-card-subtitle>{{place.description}}</ion-card-subtitle>
           <ion-card-title>{{place.place}}</ion-card-title>
         </ion-card-header>
+
+        <ion-item>
+          <ion-card-title>
+            <ion-label position="stacked">Descripción: </ion-label>
+            <ion-textarea type="text" [(ngModel)]="place.description"></ion-textarea>
+          </ion-card-title>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="textInput">Cargar nueva imagen</ion-label>
+          <ion-button class="btn-upload" for="file-upload">
+            <label for="file-upload">
+              Subir imagen
+              <input (change)="newImageUpload($event)" id="file-upload" style="display: none" type="file" />
+            </label>
+          </ion-button>
+        </ion-item>
+
+
+
         <ion-img class="img-responsive" [src]="place.image"></ion-img>
-        <ion-card-content> {{place.caracteristica}} </ion-card-content>
-        <ion-item [routerLink]="['/map',place.latitude, place.longitude]" >
+
+
+        <ion-card-content>
+
+          <ion-label>Característica: </ion-label>
+          <ion-textarea rows="10" cols="20" type="text" [(ngModel)]="place.caracteristica"></ion-textarea>
+        </ion-card-content>
+        <ion-item [routerLink]="['/map',place.latitude, place.longitude]">
           <ion-icon color="secondary" name="navigate-circle-outline" slot="start"></ion-icon>
           <ion-label>Mostrar la ubicación</ion-label>
         </ion-item>
-        <ion-item  >
-          <ion-icon color="danger" name="close-circle-outline"slot="start"></ion-icon>
+        <ion-item (click)="eliminarLugar(place.id,place.place)">
+          <ion-icon color="danger" name="close-circle-outline" slot="start"></ion-icon>
           <ion-label>Eliminar</ion-label>
+        </ion-item>
+
+        <ion-item (click)="newLugar =  place;modificarLugar(place.id,place.place)">
+          <ion-icon color="success" name="create" slot="start"></ion-icon>
+          <ion-label>Modificar</ion-label>
         </ion-item>
       </ion-card>
     </ion-col>
