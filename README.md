@@ -40,3 +40,11 @@
 ![8](https://user-images.githubusercontent.com/65980001/179427018-f40f1b65-7fa4-4418-b715-e62ebfe9fc94.jpg)
 
 
+# PROCESO DE INSTALACIÓN DE FORMA LOCAL
+Para poder instalar de forma local el proyecto se seguirá la siguiente secuencia de pasos
+```
+1.- git clone
+2.- npm install
+3.- ionic serve
+```
+
