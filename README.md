@@ -48,4 +48,8 @@ Para poder instalar de forma local el proyecto se seguirá la siguiente secuenci
  npm install
  ionic serve
 ```
-> Link del video: https://youtu.be/j4vVwyXgNd8
+
+> - Link del video: https://youtu.be/j4vVwyXgNd8
+> - Link del app web: https://turismoapp-fe7a6.web.app/home
+> - Link del google drive: https://docs.google.com/spreadsheets/d/1AUBAx1WuY1-wfghL4HhJggPrYgkar2572KWKbPHX65g/edit?usp=sharing
+> - Link del apk: https://www.mediafire.com/file/xbk9lap7mntcpgz/app-debug.apk/file
